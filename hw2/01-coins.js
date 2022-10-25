@@ -16,10 +16,7 @@ process.stdin.on('readable', function(number) {
         // 15.75 
         let quarter=0; //25's
         let dime=0; //10's
-<<<<<<< HEAD
         let nickel=0;
-=======
->>>>>>> 845f736f84a11346e07d1b694f1008bfe268cde5
         let pennie=0; // 1's
 
         let n=num2;
@@ -36,25 +33,19 @@ process.stdin.on('readable', function(number) {
                 dime+=Math.trunc(n/10);
                 n=n%10;
             }
-<<<<<<< HEAD
             if(n/5!=0)
             {
                 nickel+=Math.trunc(n/5);
                 n=n%5;
             }
-=======
->>>>>>> 845f736f84a11346e07d1b694f1008bfe268cde5
             if(n)
             {
                 pennie+=n;
             }
         }
 
-<<<<<<< HEAD
         console.log((parseInt(num1)?parseInt(num1)+' dollars'+' ':'')+ (quarter? quarter+' quarters'+' ':'')+(dime? dime+' dimes'+' ': '')+(nickel? nickel+' nickels'+' ': '')+(pennie?pennie+' pennies'+'':''));
-=======
         console.log((parseInt(num1)?parseInt(num1)+' dollars'+' ':'')+ (quarter? quarter+' quarters'+' ':'')+(dime? dime+' dimes'+' ': '')+(pennie?pennie+' pennies'+'':''));
->>>>>>> 845f736f84a11346e07d1b694f1008bfe268cde5
         process.exit();
 
     }
