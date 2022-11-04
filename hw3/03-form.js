@@ -4,7 +4,7 @@ const querystring = require('node:querystring');
 const port = process.env. PORT || 5001;
 //const file = new static.Server("./public");
 const server = http.createServer((req, res) => {
-    if(req.method === 'GET' && req.url === '/form')
+    if(req.method === 'GET' && req.url === '/form' || req.url === '/')
      {
       res.writeHead(200, { "Content-Type": "text/html" });
      const formHTML = `
