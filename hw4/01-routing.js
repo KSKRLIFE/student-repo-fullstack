@@ -40,8 +40,40 @@ app.get('/', (req, res) => {
   res.end();
 });
 
-app.get('/welcome', (req, res) => {});
+app.get('/welcome', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write(`Welcome to the world of full stack`);
+  res.end();
 
+});
+app.get('/redirect', (req, res) => {
+  res.redirect('/redirected');
+});
+
+app.get('/redirected', (req, res) => {
+res.writeHead(302, { 'Content-Type': 'text/plain' });
+  res.write(`Redirected`);
+  res.end();
+});
+
+app.get('/cache', (req, res) => {
+  res.setHeader('Cache-Control', 'max-age=86400');
+    res.writeHead(200, {"content-type": 'text/html'});
+    res.write('this resource was cached');
+    res.end();
+});
+  app.get('/cookie', (req, res) => {
+  var cookie = require('cookie');
+  res.setHeader("Set-Cookie", cookie.serialize('hello', 'world', {httpOnly: true}));
+  res.writeHead(200, { "content-type": "text/plain" });
+  res.write("cookies... yummm");
+  res.end();
+  });
+  app.get('/other', (req, res) => {
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write(`404 - page not found`);
+    res.end();
+  });
 // Add your code here
 
 app.listen(port, () => {
